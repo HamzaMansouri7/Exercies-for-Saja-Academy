@@ -1,0 +1,66 @@
+
+<div class="row m-5">
+    <div class="col-6">
+        <form class="">
+            <div class="form-group">
+                <label for="formGroupExampleInput">first name: </label>
+                <input type="text" class="form-control"
+                       id="formGroupExampleInput"
+                       placeholder="Example input placeholder"
+                       [(ngModel)]="user.firstName" name="firstName">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">last name :</label>
+                <input type="text" class="form-control"
+                       id="formGroupExampleInput2"
+                       placeholder="Another input placeholder"
+                       [(ngModel)]="user.lastName" name="lastName">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">CIN :</label>
+                <input type="number" 
+                class="form-control" id="formGroupExampleInput2"
+                    [minLength]="8" [maxlength]="8"
+                     placeholder="Another input placeholder"
+                     [(ngModel)]="user.cin" name="cin">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2"> date of birth :</label>
+                <input type="date" class="form-control" id="formGroupExampleInput2" 
+                placeholder="Another input placeholder"
+                [(ngModel)]="user.dateBirth" name="date">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Discription :</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                [(ngModel)]="user.discription" name="discription"></textarea>
+            </div>
+           <div class="d-flex" >
+             <button type="button" 
+                      class="btn btn-primary  ml-auto " 
+                      (click)="showCardFn()" 
+                      [disabled]="!user.firstName || !user.lastName || !user.cin || !user.dateBirth || !user.discription">Submit </button>
+            </div>
+
+        </form>
+    </div>
+    <div class="col-6 d-flex justify-content-center" *ngIf="showCard" >
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="../../../assets/img/profile.png" width="auto" height="250" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{user.firstName}}</h5>
+              <h5 class="card-title" *ngIf="!user.firstName">first name - last name</h5>
+
+              <p class="card-text">{{user.discription}}</p>
+              <p class="card-text" *ngIf="!user.discription">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            
+            <div  class="d-flex flex-row-reverse card-footer ">
+                <button type="button" class="btn btn-success m-2 ">Save</button>
+                <button type="button" class="btn btn-danger m-2 ">Cancel</button>
+            </div>
+           
+          </div>
+    </div>
+</div>
+

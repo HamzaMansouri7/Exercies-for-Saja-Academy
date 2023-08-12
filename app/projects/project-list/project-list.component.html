@@ -1,0 +1,51 @@
+<section class="vh-100" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-12 col-xl-10">
+  
+          <div class="card">
+            <div class="card-header p-3">
+              <h5 class="mb-0"><i class="fas fa-users me-2"></i>User List</h5>
+            </div>
+            <div class="card-body scroll " data-mdb-perfect-scrollbar="true">
+  
+              <table class="table mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Details</th>
+                  </tr>
+                </thead>
+                <tbody class="scroll">
+                  <tr class="fw-normal" *ngFor="let user of userList">
+                    <th>
+                      <img [src]="user.imageUrl" class="shadow-1-strong rounded-circle" [alt]="user.name"
+                        style="width: 55px; height: auto;">
+                      <span class="ms-2">{{ user.name }}</span>
+                    </th>
+                    <td class="align-middle">
+                      <span>{{ user.email }}</span>
+                    </td>
+                    <td class="align-middle">
+                      <span>{{ user.age }}</span>
+                    </td>
+                    <td class="align-middle">
+                      <span>{{ user.details }}</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card-footer text-end p-3">
+              <button class="me-2 btn btn-link mr-5">Cancel</button>
+              <button class="btn btn-primary">Add User</button>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+  
